@@ -1,0 +1,23 @@
+{% block userInput %}
+    <div class="user-input">
+        <div class="ui-wrapper">
+            <div class="ui-group">
+                <div class="ui-element ui-group">
+                    <input type="radio" name="group" id="ui-group-first" checked="checked">
+                    <label for="ui-group-first">I Группа</label>
+                </div>
+                <div class="ui-element ui-group">
+                    <input type="radio" name="group" id="ui-group-second">
+                    <label for="ui-group-second">II Группа</label>
+                </div>
+            </div>
+            <div class="ui-date ui-input">
+                <div id="datepicker"></div>
+            </div>
+            <div class="ui-date ui-templates">
+                <div class="ui-element">Сегодня</div>
+                <div class="ui-element">Завтра</div>
+            </div>
+        </div>
+    </div>
+{% endblock userInput %}

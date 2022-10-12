@@ -1,0 +1,334 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+$accent-color-1: #003fa3;
+$accent-color-2: #003687;
+$accent-color-3: #002761;
+$accent-color-4: #001c46;
+$accent-color-5: #000f26;
+$text-color: #aeccff;
+
+html {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+}
+
+.emptyData {
+    text-align: center;
+    font-size: 2rem;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $accent-color-5;
+    color: $text-color;
+    padding-bottom: 8rem;
+}
+
+header {
+    box-shadow: 0 0 1rem 1.5rem $accent-color-5;
+    background-color: $accent-color-5;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    
+    .editData {
+        color: $text-color;
+        font-size: 1rem;
+        text-decoration: none;
+        display: block;
+        width: fit-content;
+        height: fit-content;
+        background-color: $accent-color-4;
+        border-radius: .5rem;
+        padding: .7rem;
+        transition: .3s;
+        margin: 1rem auto 0 auto;
+    
+        &:hover {
+            background-color: $accent-color-3;
+        }
+    }
+
+
+}
+
+.timetable {
+    display: none;
+    flex-direction: column;
+    width: fit-content;
+    margin: 2rem auto 0 auto;
+
+    .tt-name {
+        text-align: center;
+        display: inline;
+    }
+}
+
+.tt-row {
+    display: flex;
+    flex-direction: row;
+    height: 3rem;
+    transition: .3s;
+    // width: fit-content;
+    align-items: stretch;
+
+    .tt-element {
+        padding: .7rem;
+        margin: .3rem;
+        background-color: $accent-color-4;
+        border-radius: .5rem;
+        font-size: 1rem;
+        line-height: 1rem;
+        transition: .3s;
+        overflow: hidden;
+        user-select: none;
+    }
+
+    .tt-lesson {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        position: relative;
+        width: max-content;
+        flex-grow: 1;
+
+        &:hover {
+            background-color: $accent-color-3;
+        }
+    }
+
+    .free-time {
+        color: #8aff86;
+        cursor: auto;
+
+        &:hover {
+            background-color: $accent-color-4;
+        }
+    }
+
+    .tt-additInfo {
+        opacity: 0;
+        margin-top: .5rem;
+    }
+
+    .tt-time {
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 700;
+    }
+}
+
+.user-input {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    margin: 6rem auto;
+
+    .ui-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .ui-date, .ui-group {
+            display: flex;
+            flex-direction: row;
+
+            .ui-element {
+                text-align: center;
+                padding: .7rem;
+                margin: .3rem;
+                background: $accent-color-4;
+                border-radius: .5rem;
+                transition: .3s;
+                height: fit-content;
+                width: 50%;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $accent-color-3;
+                }
+
+                
+            }
+
+            
+
+            .ui-group {
+                cursor: auto;
+                display: block;
+                padding: 0;
+                label {
+                    display: block;
+                    text-align: center;
+                    padding: .7rem 0;
+                    cursor: pointer;
+                    transition: .3s;
+                    border-radius: .5rem;
+                }
+
+                input[type=radio] {
+                    display: none;
+                }
+
+                input[type=radio]:checked + label {
+                    background-color: $accent-color-2;
+                }
+            }
+        }
+            
+        .ui-templates .ui-element{
+            cursor: not-allowed;
+            opacity: .4;
+
+            &:hover {
+                background-color: $accent-color-4;
+            }
+        }
+    }
+}
+
+.ui-input {
+    display: none;
+}
+
+.ui-input-display {
+    display: inline;
+}
+
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-datepicker {
+	width: fit-content;
+	padding: .7rem .7rem .7rem .7rem;
+	display: none;
+    margin: .3rem;
+    background-color: $accent-color-4;
+    border-radius: .5rem;
+}
+.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: 0;
+    padding-bottom: .5rem;
+    border-radius: .5rem;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	position: absolute;
+    top: 0;
+	width: 2rem;
+	height: 2rem;
+
+    background-image: url('../img/dp-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: 2rem 2rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: .3s;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+    background-color: $accent-color-5;
+}
+.ui-datepicker .ui-datepicker-prev {
+	left: .6rem;
+}
+.ui-datepicker .ui-datepicker-next {
+	right: .6rem;
+    transform: rotate(180deg);
+}
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+	display: none;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0;
+    font-size: 1rem;
+	line-height: 2rem;
+	text-align: center;
+    margin-bottom: .5rem;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 1rem;
+}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+	width: 45%;
+}
+.ui-datepicker table {
+	width: 100%;
+	font-size: .9rem;
+	margin: 0;
+}
+.ui-datepicker th {
+    display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+    width: 2.9rem;
+    height: auto;
+    padding: 0;
+}
+.ui-datepicker .ui-state-disabled {
+    opacity: .3;
+}
+.ui-datepicker td {
+    display: inline-block;
+    margin: .2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: .3s;
+    padding: 0;
+    
+    &:hover {
+        background-color: $accent-color-3;
+    }
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+	display: block;
+    padding: 0;
+    margin: 0;
+	text-align: right;
+    line-height: 2.5rem;
+	text-decoration: none;
+    color: $text-color;
+    text-align: center;
+}
+
+.ui-datepicker td.ui-datepicker-today {
+    box-shadow: 0px 0px 0px .1rem $accent-color-2 inset;
+}
+
+.ui-datepicker td.ui-datepicker-current-day {
+    background-color: $accent-color-2;
+}
+
+.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: .7rem 0 0 0;
+	padding: 0 .2rem;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5rem .2rem .4rem;
+	cursor: pointer;
+	padding: .2rem .6rem .3rem .6rem;
+	width: auto;
+	overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left;
+}

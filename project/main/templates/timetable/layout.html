@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'main/scripts/jquery-3.6.1.min.js' %}"></script>
+    <script src="{% static 'main/scripts/jquery-ui.js' %}"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href=" {% static 'main/img/apple-touch-icon.png' %} ">
+    <link rel="icon" type="image/png" sizes="32x32" href=" {% static 'main/img/favicon-32x32.png' %} ">
+    <link rel="icon" type="image/png" sizes="16x16" href=" {% static 'main/img/favicon-16x16.png' %} ">
+    <link rel="manifest" href=" {% static 'main/img/site.webmanifest' %} ">
+    <link rel="stylesheet" href="{% static 'main/styles/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'main/styles/timetable-main.css' %}">
+    <title></title>
+</head>
+<body>
+    {% include 'timetable/user-input.html' %}
+    {% block timetable %}{% endblock timetable %}
+    <header>
+        <a href="/admin" class='editData'>Редактировать записи</a>
+    </header>
+    
+    <script src="{% static 'main/scripts/script.js' %}"></script>
+</body>
+</html>

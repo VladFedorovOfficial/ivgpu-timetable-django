@@ -1,0 +1,41 @@
+{% extends 'timetable/layout.html' %}
+{% load static %}
+
+{% block timetable %}
+    {% if lessons %}
+        {% for el in lessons %}
+            <div class="timetable" data-timetable-group='{{ el.groupNum }}' data-timetable-weekDay='{{ el.weekDay }}' data-timetable-weekType='{{ el.weekType }}'>
+                <h3 class='tt-name'>{{el.groupNum|upper}}: {{el.weekType}} неделя, {{el.weekDay}}</h3>
+                <div class='tt-row'>
+                    <span class='tt-time tt-element'>&nbsp8:30-10:00</span>
+                    <span class='tt-lesson tt-element'>{{ el.lessonNameFirst }}
+                    <span class='tt-additInfo'>{{ el.additInfoFirst }}</span>
+                    </span>
+                </div>
+
+                <div class='tt-row'>
+                    <span class='tt-time tt-element'>10:15-11:45</span>
+                    <span class='tt-lesson tt-element'>{{ el.lessonNameSecond }}
+                    <span class='tt-additInfo'>{{ el.additInfoSecond }}</span>
+                    </span>
+                </div>
+
+                <div class='tt-row'>
+                    <span class='tt-time tt-element'>12:30-14:00</span>
+                    <span class='tt-lesson tt-element'>{{ el.lessonNameThird }}
+                    <span class='tt-additInfo'>{{ el.additInfoThird }}</span>
+                    </span>
+                </div>
+
+                <div class='tt-row'>
+                    <span class='tt-time tt-element'>14:10-15:40</span>
+                    <span class='tt-lesson tt-element'>{{ el.lessonNameFourth }}
+                    <span class='tt-additInfo'>{{ el.additInfoFourth }}</span>
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class='emptyData'>База данных пуста</p>
+    {% endif %}
+{% endblock timetable %}
